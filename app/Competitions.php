@@ -15,4 +15,8 @@ class Competitions extends Model
     public function rules() {
         return $this->belongsToMany('App\Rules','competition_rules','competition_id','rule_id');
     }
+
+    public function playoffs() {
+        return $this->hasMany('App\Playoff','competition_id');
+    }
 }

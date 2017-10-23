@@ -77,6 +77,9 @@ class CompetitionController extends Controller {
 
     public function manage($id) {
 
+        $competition = Competitions::findOrFail($id);
+
+        return view ('competitions.manage',['competition' => $competition]);
 
     }
 

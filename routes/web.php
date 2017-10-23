@@ -48,3 +48,29 @@ Route::get('/competitions/manage/{id}', [
     'uses' => 'CompetitionController@manage',
     'as' => 'competitions.manage'
 ]);
+
+//playoffs
+Route::get('/playoff/{id}/create', [
+   'uses' => 'PlayoffController@create',
+    'as' => 'playoff.create'
+]);
+
+Route::post('/playoff/{id}/create',[
+   'uses' => 'PlayoffController@postCreate',
+    'as' => 'playoff.post.create'
+]);
+
+Route::get('playoff/{id}/edit/{pl}',[
+   'uses' => 'PlayoffController@edit',
+    'as' => 'playoff.edit'
+]);
+
+Route::get('/playoff/{id}/delete/{pl}',[
+   'uses' => 'PlayoffController@delete',
+    'as' => 'playoff.delete'
+]);
+
+Route::post('/playoff/{id}/update/{pl}',[
+    'uses' => 'PlayoffController@update',
+    'as' => 'playoff.post.update'
+]);
