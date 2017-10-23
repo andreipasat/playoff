@@ -49,3 +49,8 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT).
+
+## Support on Beerpay
+Hey dude! Help me out for a couple of :beers:!
+
+[![Beerpay](https://beerpay.io/andreipasat/playoff/badge.svg?style=beer-square)](https://beerpay.io/andreipasat/playoff)  [![Beerpay](https://beerpay.io/andreipasat/playoff/make-wish.svg?style=flat-square)](https://beerpay.io/andreipasat/playoff?focus=wish)
