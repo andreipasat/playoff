@@ -49,6 +49,31 @@ Route::get('/competitions/manage/{id}', [
     'as' => 'competitions.manage'
 ]);
 
+//players
+Route::get('/players',[
+   'uses' => 'PlayersController@index',
+    'as' => 'players'
+]);
+Route::get('/players/create',[
+   'uses' => 'PlayersController@create',
+    'as' => 'players.create'
+]);
+Route::post('/players/create',[
+   'uses' => 'PlayersController@save',
+    'as' => 'players.post.create'
+]);
+
+Route::get('/player/edit/{id}',[
+   'uses' => 'PlayersController@edit',
+    'as' => 'player.edit'
+]);
+
+Route::post('/player/edit/{id}',[
+   'uses' => 'PlayersController@update',
+    'as' => 'players.post.update'
+]);
+
+
 //playoffs
 Route::get('/playoff/{id}/create', [
    'uses' => 'PlayoffController@create',

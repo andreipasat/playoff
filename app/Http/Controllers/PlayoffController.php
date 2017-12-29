@@ -53,8 +53,11 @@ class PlayoffController extends Controller {
 
         $playOff = Competitions::findOrFail($id)->playoffs()->where('id', $pl)->first();
 
-        $playOff->rule_id = $request['id'];
+        $playOff->rule_id = $request['rule'];
         $playOff->sex = $request['sex'];
+        $playOff->save();
+
+        return redirect()->route('competitions.manage',['id' => $playOff->competition->id])->with(['success' => 'Playoff saved!']);
 
 
 

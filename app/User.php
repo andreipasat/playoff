@@ -30,4 +30,8 @@ class User extends Authenticatable
     public function competitions() {
         return $this->hasMany('App\Competitions');
     }
+
+    public function players() {
+        return $this->hasMany('App\Players');
+    }
 }
