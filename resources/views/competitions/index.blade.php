@@ -2,21 +2,29 @@
 
 @section('title', 'Competitions')
 
+@section('menu')
+    <div class="col-md-3">
+        @include('includes.menu')
+    </div>
+@endsection
+
+
 @section('content')
 
     <div class="panel panel-default">
         <div class="panel-heading">
-            Competitions
+            Соревнования
         </div>
         <div class="panel-body">
-            <a href="{{ route('competitions.create') }}" class="btn btn-primary">Create</a>
+            <a href="{{ route('competitions.create') }}" class="btn btn-primary">Создайте</a>
 
             @if (!empty($competitions))
                 <table class="table">
                     <thead>
                         <th>#</th>
-                        <th>Name</th>
-                        <th>Action</th>
+                        <th>Название</th>
+                        <th>Правила</th>
+                        <th></th>
                     </thead>
                     <tbody>
                         @foreach($competitions as $competition)
@@ -24,8 +32,13 @@
                                 <td>{{ $competition->id }}</td>
                                 <td>{{ $competition->name }}</td>
                                 <td>
-                                    <a href="{{ route('competitions.edit',['id' => $competition->id]) }}" class="btn-sm btn-primary">Edit</a>
-                                    <a href="{{ route('competitions.manage',['id' => $competition->id]) }}" class="btn-sm btn-primary">Manage</a>
+                                    @foreach($competition->rules as $rule)
+                                        {{ $rule->name }} <br>
+                                    @endforeach
+                                </td>
+                                <td>
+                                    <a href="{{ route('competitions.edit',['id' => $competition->id]) }}" class="btn-sm btn-primary">редактировать</a>
+                                    <a href="{{ route('competitions.manage',['id' => $competition->id]) }}" class="btn-sm btn-primary">управлять</a>
                                 </td>
                             </tr>
                         @endforeach

@@ -1,11 +1,11 @@
 <div class="panel panel-default">
     <div class="panel-heading">
-        Menu
+        Меню
     </div>
     <div class="panel-body">
         <ul>
-            <li><a href="{{ route('competitions') }}">Competitions</a></li>
-            <li><a href="{{ route('players') }}">Players</a></li>
+            <li><a href="{{ route('competitions') }}">Соревнования</a></li>
+            <li><a href="{{ route('players') }}">Участники</a></li>
         </ul>
     </div>
 </div>

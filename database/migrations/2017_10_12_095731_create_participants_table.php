@@ -17,7 +17,7 @@ class CreateParticipantsTable extends Migration
             $table->increments('id');
             $table->integer('playoff_id');
             $table->integer('player_id');
-            $table->integer('category_id');
+            $table->integer('order');
             $table->timestamps();
         });
     }

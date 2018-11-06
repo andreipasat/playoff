@@ -19,6 +19,7 @@ class CreatePlayersTable extends Migration
             $table->string('name');
             $table->enum('sex',['m','w']);
             $table->date('birthday');
+            $table->integer('age');
             $table->decimal('weight');
             $table->integer('club_id');
             $table->string('coach');

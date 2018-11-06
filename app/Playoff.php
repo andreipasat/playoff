@@ -15,4 +15,8 @@ class Playoff extends Model
     public function competition() {
         return $this->belongsTo('App\Competitions','competition_id');
     }
+
+    public function participants() {
+        return $this->hasMany('App\Participants')->orderBy('order');
+    }
 }

@@ -18,6 +18,10 @@ class CreatePlayoffsTable extends Migration
             $table->integer('competition_id');
             $table->integer('rule_id');
             $table->enum('sex',['m','w']);
+            $table->integer('age_from')->nullable();
+            $table->integer('age_to')->nullable();
+            $table->integer('kg_from')->nullable();
+            $table->integer('kg_to')->nullable();
             $table->timestamps();
         });
     }

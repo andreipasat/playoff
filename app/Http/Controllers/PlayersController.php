@@ -11,7 +11,8 @@ use Illuminate\Support\Facades\Auth;
 class PlayersController extends Controller {
 
     public function index() {
-        return view('players.index',['players' => Auth::user()->players]);
+        $players = Players::where('user_id', Auth::user()->id)->paginate(5);
+        return view('players.index',['players' => $players]);
     }
 
     public function create() {
@@ -35,6 +36,7 @@ class PlayersController extends Controller {
         $player->name = $request['name'];
         $player->sex = $request['sex'];
         $player->birthday = Carbon::createFromFormat('d/m/Y', $request['birthday'])->format('Y-m-d');
+        $player->age = Carbon::createFromFormat('d/m/Y', $request['birthday'])->age;
         $player->weight = $request['weight'];
         $player->club_id = $request['club_id'];
         $player->coach = $request['coach'];
@@ -81,6 +83,7 @@ class PlayersController extends Controller {
         $player->name = $request['name'];
         $player->sex = $request['sex'];
         $player->birthday = Carbon::createFromFormat('d/m/Y', $request['birthday'])->format('Y-m-d');
+        $player->age = Carbon::createFromFormat('d/m/Y', $request['birthday'])->age;
 
         //dd(date('Y-m-d',strtotime($request['birthday'])));
 

@@ -2,17 +2,23 @@
 
 @section('title| Edit player')
 
+@section('menu')
+    <div class="col-md-3">
+        @include('includes.menu')
+    </div>
+@endsection
+
 @section('content')
 
     <div class="panel panel-default">
         <div class="panel-heading">
-            Edit player
+            Изменить участника
         </div>
         <div class="panel-body">
             <form class="form-horizontal" method="post" action="{{ route('players.post.update',['id' => $player->id]) }}">
                 {{ csrf_field() }}
                 <div class="form-group {{ $errors->has('name') ? 'has-error' : '' }}">
-                    <label class="control-label col-md-3" for="name">Name</label>
+                    <label class="control-label col-md-3" for="name">имя</label>
                     <div class="col-md-9">
                         <input type="text" name="name" class="form-control" value="{{ $player->name }}">
                         @if ($errors->has('name'))
@@ -22,10 +28,10 @@
                 </div>
 
                 <div class="form-group {{ $errors->has('sex') ? 'has-error' : '' }}">
-                    <label class="control-label col-md-3" for="name">Sex</label>
+                    <label class="control-label col-md-3" for="name">пол</label>
                     <div class="col-md-9">
-                        <input type="radio" {{ ($player->sex == 'm') ? 'checked' : '' }} name="sex" value="m"> Man
-                        <input type="radio" {{ ($player->sex == 'w') ? 'checked' : '' }} name="sex" value="w"> Woman
+                        <input type="radio" {{ ($player->sex == 'm') ? 'checked' : '' }} name="sex" value="m"> мужчина
+                        <input type="radio" {{ ($player->sex == 'w') ? 'checked' : '' }} name="sex" value="w"> Женщина
                         @if ($errors->has('sex'))
                             <span class="help-block"><strong>{{ $errors->first('sex') }}</strong></span>
                         @endif
@@ -33,7 +39,7 @@
                 </div>
 
                 <div class="form-group {{ $errors->has('birthday') ? 'has-error' : '' }}">
-                    <label class="control-label col-md-3" for="birthday">Birthday</label>
+                    <label class="control-label col-md-3" for="birthday">день рождения</label>
                     <div class="col-md-9">
                         <input type="text" data-provide="datepicker" data-date-format="dd/mm/yyyy" class="datepicker form-control" name="birthday" value="{{ date('d/m/Y',strtotime($player->birthday)) }}">
                         @if ($errors->has('birthday'))
@@ -43,7 +49,7 @@
                 </div>
 
                 <div class="form-group {{ $errors->has('weight') ? 'has-error' : '' }}">
-                    <label class="control-label col-md-3" for="weight">Weight</label>
+                    <label class="control-label col-md-3" for="weight">вес</label>
                     <div class="col-md-9">
                         <input type="text" class="form-control" name="weight" value="{{ $player->weight }}">
                         @if ($errors->has('weight'))
@@ -53,7 +59,7 @@
                 </div>
 
                 <div class="form-group {{ $errors->has('club_id') ? 'has-error' : '' }}">
-                    <label class="control-label col-md-3" for="club_id">Club</label>
+                    <label class="control-label col-md-3" for="club_id">Клуб</label>
                     <div class="col-md-9">
                         <select name="club_id" class="form-control">
                             @foreach(\App\Clubs::all() as $value)
@@ -67,7 +73,7 @@
                 </div>
 
                 <div class="form-group {{ $errors->has('coach') ? 'has-error' : '' }}">
-                    <label class="control-label col-md-3" for="coach">Coach</label>
+                    <label class="control-label col-md-3" for="coach">Тренер</label>
                     <div class="col-md-9">
                         <input type="text" name="coach" class="form-control" value="{{ $player->coach }}">
                         @if ($errors->has('coach'))
@@ -77,7 +83,7 @@
                 </div>
 
                 <div class="form-group {{ $errors->has('wins') ? 'has-error' : '' }}">
-                    <label class="control-label col-md-3" for="wins">Wins</label>
+                    <label class="control-label col-md-3" for="wins">Выигрыши</label>
                     <div class="col-md-9">
                         <input type="text" class="form-control" name="wins" value="{{ $player->wins }}">
                         @if ($errors->has('wins'))
@@ -87,7 +93,7 @@
                 </div>
 
                 <div class="form-group {{ $errors->has('loses') ? 'has-error' : '' }}">
-                    <label class="control-label col-md-3" for="loses">Loses</label>
+                    <label class="control-label col-md-3" for="loses">поражение</label>
                     <div class="col-md-9">
                         <input type="text" class="form-control" name="loses" value="{{ $player->loses }}">
                         @if ($errors->has('loses'))
@@ -97,7 +103,7 @@
                 </div>
 
                 <div class="form-group {{ $errors->has('equality') ? 'has-error' : '' }}">
-                    <label class="control-label col-md-3" for="equality">Equality</label>
+                    <label class="control-label col-md-3" for="equality">ничья</label>
                     <div class="col-md-9">
                         <input type="text" class="form-control" name="equality" value="{{ $player->equality }}">
                         @if ($errors->has('equality'))
@@ -108,7 +114,7 @@
 
                 <div class="form-group">
                     <div class="col-md-12">
-                        <button class="btn btn-primary">Save</button>
+                        <button class="btn btn-primary">Сохранить</button>
                     </div>
 
                 </div>

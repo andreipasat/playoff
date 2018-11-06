@@ -99,3 +99,26 @@ Route::post('/playoff/{id}/update/{pl}',[
     'uses' => 'PlayoffController@update',
     'as' => 'playoff.post.update'
 ]);
+
+Route::post('/playoff/kg',[
+   'uses' => 'PlayoffController@getKg',
+    'as' => 'playoff.get.kg'
+]);
+
+Route::post('/playoff/get_players',[
+   'uses' => 'PlayoffController@getPlayers',
+    'as' => 'playoff.get.players'
+]);
+
+Route::post('/playoff/savelist', [
+   'uses' => 'PlayoffController@saveList',
+    'as' => 'playoff.save.list'
+]);
+
+Route::get('/playoff/view/{id}', [
+   'uses' => 'PlayoffController@view',
+    'as' => 'playoff.view'
+]);
+
+
+Route::resource('photos', 'ClubsController');

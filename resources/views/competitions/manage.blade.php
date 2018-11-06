@@ -1,23 +1,28 @@
 @extends('layouts.app')
 
 @section('title| Manage competition')
+@section('menu')
+    <div class="col-md-3">
+        @include('includes.menu')
+    </div>
+@endsection
 
 @section('content')
 
     <div class="panel panel-default">
         <div class="panel-heading">
-            Manage competition - {{ $competition->name }}
+            Соревнования - {{ $competition->name }}
         </div>
         <div class="panel-body">
-            <a href="{{ route('playoff.create',['id' => $competition->id]) }}" class="btn btn-primary">Create playoff</a>
+            <a href="{{ route('playoff.create',['id' => $competition->id]) }}" class="btn btn-primary">Создать раздел</a>
 
             @if (!empty($competition->playoffs))
                 <table class="table">
                     <thead>
                     <th>#</th>
-                    <th>Sex</th>
-                    <th>Rule</th>
-                    <th>Action</th>
+                    <th>Пол</th>
+                    <th>Правило</th>
+                    <th>#</th>
                     </thead>
                     <tbody>
                     @foreach($competition->playoffs as $playoff)
@@ -26,8 +31,9 @@
                             <td>{{ $playoff->sex }}</td>
                             <td>{{ $playoff->rule->name }}</td>
                             <td>
-                                <a href="{{ route('playoff.edit',['id' => $competition->id,'pl' => $playoff->id]) }}" class="btn-sm btn-primary">Edit</a>
-                                <a href="{{ route('playoff.delete',['id' => $competition->id,'pl' => $playoff->id]) }}" class="btn-sm btn-danger">Delete</a>
+                                <a href="{{ route('playoff.view',['id' => $competition->id,'pl' => $playoff->id]) }}" class="btn-sm btn-primary">смотреть</a>
+                                <a href="{{ route('playoff.edit',['id' => $competition->id,'pl' => $playoff->id]) }}" class="btn-sm btn-primary">редактировать</a>
+                                <a href="{{ route('playoff.delete',['id' => $competition->id,'pl' => $playoff->id]) }}" class="btn-sm btn-danger">Удалить</a>
                             </td>
                         </tr>
                     @endforeach
@@ -36,8 +42,6 @@
                 </table>
             @endif
         </div>
-
-
 
     </div>
 

@@ -58,7 +58,7 @@
                                         <a href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                            Logout
+                                            Выход
                                         </a>
 
                                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
@@ -74,9 +74,10 @@
         </nav>
         <div class="container">
             <div class="row">
-                <div class="col-md-3">
-                    @include('includes.menu')
-                </div>
+                @yield('menu')
+                {{--<div class="col-md-3">--}}
+                    {{--@include('includes.menu')--}}
+                {{--</div>--}}
                 <div class="col-md-9">
                     @include('includes.messages')
                     @yield('content')
@@ -93,8 +94,14 @@
             src="https://code.jquery.com/jquery-3.2.1.min.js"
             integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
             crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/js/bootstrap-datepicker.min.js"></script>
+    <script src="/js/playoff.js"></script>
+    <script type="text/javascript">
+        var token = "{{ Session::token() }}";
+    </script>
+
 </body>
 </html>
