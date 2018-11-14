@@ -28,11 +28,11 @@
                     @foreach($competition->playoffs as $playoff)
                         <tr>
                             <td>{{ $playoff->id }}</td>
-                            <td>{{ $playoff->sex }}</td>
+                            <td>{{ config('custom.sex.' .$playoff->sex) }}</td>
                             <td>{{ $playoff->rule->name }}</td>
                             <td>
-                                <a href="{{ route('playoff.view',['id' => $competition->id,'pl' => $playoff->id]) }}" class="btn-sm btn-primary">смотреть</a>
-                                <a href="{{ route('playoff.edit',['id' => $competition->id,'pl' => $playoff->id]) }}" class="btn-sm btn-primary">редактировать</a>
+                                <a href="{{ route('playoff.view',['id' => $competition->id,'pl' => $playoff->id]) }}" class="btn-sm btn-primary">Смотреть</a>
+                                <a href="{{ route('playoff.edit',['id' => $competition->id,'pl' => $playoff->id]) }}" class="btn-sm btn-primary">Управлять</a>
                                 <a href="{{ route('playoff.delete',['id' => $competition->id,'pl' => $playoff->id]) }}" class="btn-sm btn-danger">Удалить</a>
                             </td>
                         </tr>

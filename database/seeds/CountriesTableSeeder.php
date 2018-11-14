@@ -15,5 +15,10 @@ class CountriesTableSeeder extends Seeder
         $country->name = 'R.Moldova';
         $country->prefix = 'md';
         $country->save();
+
+        $country = new \App\Countries();
+        $country->name = 'Romania';
+        $country->prefix = 'ro';
+        $country->save();
     }
 }

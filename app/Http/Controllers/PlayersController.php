@@ -32,14 +32,13 @@ class PlayersController extends Controller {
         ]);
 
         $player = new Players();
-        $player->user_id = Auth::user()->id;
         $player->name = $request['name'];
         $player->sex = $request['sex'];
         $player->birthday = Carbon::createFromFormat('d/m/Y', $request['birthday'])->format('Y-m-d');
         $player->age = Carbon::createFromFormat('d/m/Y', $request['birthday'])->age;
         $player->weight = $request['weight'];
         $player->club_id = $request['club_id'];
-        $player->coach = $request['coach'];
+        $player->coach_id = $request['coach_id'];
 
         if (!empty($request['wins'])) {
             $player->wins = $request['wins'];
@@ -52,10 +51,11 @@ class PlayersController extends Controller {
         if (!empty($request['equality'])) {
             $player->equality = $request['equality'];
         }
+        $this->uploadPhoto();
 
         $player->save();
 
-        return redirect()->route('players')->with(['success' => 'Player saved successfully !']);
+        return redirect()->route('players')->with(['success' => 'Участник успешно сохранен !']);
 
     }
 
@@ -89,7 +89,7 @@ class PlayersController extends Controller {
 
         $player->weight = $request['weight'];
         $player->club_id = $request['club_id'];
-        $player->coach = $request['coach'];
+        $player->coach_id = $request['coach_id'];
 
         if (!empty($request['wins'])) {
             $player->wins = $request['wins'];
@@ -103,9 +103,19 @@ class PlayersController extends Controller {
             $player->equality = $request['equality'];
         }
 
+        $this->uploadPhoto();
+
         $player->save();
 
-        return redirect()->route('players')->with(['success' => 'Saved!']);
+        return redirect()->route('players')->with(['success' => 'Сохранено!']);
+
+    }
+
+    public function delete() {
+        //@todo
+    }
+
+    private function uploadPhoto() {
 
     }
 

@@ -15,14 +15,14 @@ class CreatePlayersTable extends Migration
     {
         Schema::create('players', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('user_id');
+            $table->string('photo')->nullable();
             $table->string('name');
             $table->enum('sex',['m','w']);
             $table->date('birthday');
             $table->integer('age');
             $table->decimal('weight');
             $table->integer('club_id');
-            $table->string('coach');
+            $table->integer('coach_id');
             $table->integer('wins')->default(0);
             $table->integer('loses')->default(0);
             $table->integer('equality')->default(0);

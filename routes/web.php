@@ -122,3 +122,4 @@ Route::get('/playoff/view/{id}', [
 
 
 Route::resource('photos', 'ClubsController');
+Route::resource('coach','CoachController');

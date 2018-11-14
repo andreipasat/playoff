@@ -85,7 +85,7 @@
                 <div class="form-group {{ $errors->has('wins') ? 'has-error' : '' }}">
                     <label class="control-label col-md-3" for="wins">Победы</label>
                     <div class="col-md-9">
-                        <input type="text" class="form-control" value="{{ old('wins') }}">
+                        <input type="text" name="wins" class="form-control" value="{{ old('wins') }}">
                         @if ($errors->has('wins'))
                             <span class="help-block"><strong>{{ $errors->first('wins') }}</strong></span>
                         @endif
@@ -95,7 +95,7 @@
                 <div class="form-group {{ $errors->has('loses') ? 'has-error' : '' }}">
                     <label class="control-label col-md-3" for="loses">Поражения</label>
                     <div class="col-md-9">
-                        <input type="text" class="form-control" value="{{ old('loses') }}">
+                        <input type="text" name="loses" class="form-control" value="{{ old('loses') }}">
                         @if ($errors->has('loses'))
                             <span class="help-block"><strong>{{ $errors->first('loses') }}</strong></span>
                         @endif
@@ -105,7 +105,7 @@
                 <div class="form-group {{ $errors->has('equality') ? 'has-error' : '' }}">
                     <label class="control-label col-md-3" for="equality">Ничьи</label>
                     <div class="col-md-9">
-                        <input type="text" class="form-control" value="{{ old('equality') }}">
+                        <input type="text" name="equality" class="form-control" value="{{ old('equality') }}">
                         @if ($errors->has('equality'))
                             <span class="help-block"><strong>{{ $errors->first('equality') }}</strong></span>
                         @endif

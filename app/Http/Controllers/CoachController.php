@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Clubs;
+use App\Coach;
 use Illuminate\Http\Request;
 
-class ClubsController extends Controller
+class CoachController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +14,7 @@ class ClubsController extends Controller
      */
     public function index()
     {
-        return view('clubs.index');
+        //
     }
 
     /**
@@ -24,7 +24,7 @@ class ClubsController extends Controller
      */
     public function create()
     {
-        return view('clubs.create');
+        //
     }
 
     /**
@@ -41,33 +41,33 @@ class ClubsController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Clubs  $clubs
+     * @param  \App\Coach  $coach
      * @return \Illuminate\Http\Response
      */
-    public function show(Clubs $clubs)
+    public function show(Coach $coach)
     {
-        return view('clubs.show');
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Clubs  $clubs
+     * @param  \App\Coach  $coach
      * @return \Illuminate\Http\Response
      */
-    public function edit(Clubs $clubs)
+    public function edit(Coach $coach)
     {
-        return view('clubs.edit');
+        //
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Clubs  $clubs
+     * @param  \App\Coach  $coach
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Clubs $clubs)
+    public function update(Request $request, Coach $coach)
     {
         //
     }
@@ -75,10 +75,10 @@ class ClubsController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Clubs  $clubs
+     * @param  \App\Coach  $coach
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Clubs $clubs)
+    public function destroy(Coach $coach)
     {
         //
     }
